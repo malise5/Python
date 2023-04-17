@@ -14,5 +14,11 @@ class Cat(Pet):
     def talk(self):
         print(f"{self.name} say Hallo")
 
+    def print_cat_details(self):
+        super().print_pet_details()
+        print(f'''
+            Indoor: {self.indoor}
+        ''')
+
 
 ipdb.set_trace()
