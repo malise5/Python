@@ -25,3 +25,9 @@ class Pet:
             temperament: {self.temperament},
             owner: {self.owner}
         """)
+
+    # CLASS METHOD
+    @classmethod
+    def increase_pets(cls):
+        cls.total_pets += 1
+        print(f"one new pet added")
