@@ -2,12 +2,17 @@ import ipdb
 
 
 class Pet:
+
+    total_pets = 0
+
     def __init__(self, name, age, breed, temperament, owner="No Owner"):
         self.name = name
         self.age = age
         self.breed = breed
         self.temperament = temperament
         self.owner = owner
+
+        Pet.increase_pets()
 
     def print_pet(self):
         print(self)
@@ -19,4 +24,4 @@ class Pet:
             breed: {self.breed}, 
             temperament: {self.temperament},
             owner: {self.owner}
-            """)
+        """)
