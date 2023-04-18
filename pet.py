@@ -1,16 +1,21 @@
 import ipdb
+import sqlite3
+
+CONN = sqlite3.Connection('./data.db')
+
+CURSOR = CONN.cursor()
 
 
 class Pet:
 
     total_pets = 0
 
-    def __init__(self, name, age, breed, temperament, owner="No Owner"):
+    def __init__(self, name, species, breed, temperament, id=None):
         self.name = name
-        self.age = age
+        self.species = species
         self.breed = breed
         self.temperament = temperament
-        self.owner = owner
+        self.id = id
 
         Pet.increase_pets()
 

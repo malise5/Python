@@ -1,4 +1,10 @@
 import ipdb
+import sqlite3
+
+
+CONN = sqlite3.Connection('./data.db')
+
+CURSOR = CONN.cursor()
 
 
 class Owner:
