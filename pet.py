@@ -15,6 +15,7 @@ class Pet:
         self.breed = breed
         self.temperament = temperament
 
+    # Creating table
     @classmethod
     def create_table(cls):
         sql = '''
@@ -29,6 +30,7 @@ class Pet:
 
         CURSOR.execute(sql)
 
+    # dROPPING THE TABLE
     @classmethod
     def drop_table(cls):
         sql = '''
@@ -41,6 +43,17 @@ class Pet:
             INSERT INTO pets(name, species, breed, temperament)
             VALUES (?,?,?,?)
         '''
+        # self.id = CURSOR.lastrowid
+
         CURSOR.execute(sql, (self.name, self.species,
                        self.breed, self.temperament))
-        self.id = CURSOR.lastrowid
+
+    @classmethod
+    def create(cls, name, species, breed, temperament):
+        # __init__(cls, name, species, breed,
+        pet = cls(name, species, breed, temperament)
+
+        # persist New Instance to database
+        pet.save()
+
+        return pet
