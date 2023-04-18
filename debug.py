@@ -3,14 +3,21 @@ from owner import Owner, CONN, CURSOR
 # from cat import Cat
 import ipdb
 
-# Instance of the Pet CLass
-# cookie = Pet("cokie", 1, "Duchshund", "hyper")
+# Class Method
+Pet.create_table()
 
-# # Instances of the owner
+
+# spot = Pet("Spot", "Dog", "husky", "Feisty")
+
+# instance method
+# spot.save()
+
+# Class Method
+# Owner.create_table()
 # john = Owner("John", "Smith", 25)
 
-# # CAT INSTANCE
-# kude = Cat("meow", 29, "pussy", "kuku", "Yes")
+# instance method
+# john.save()
 
 
 ipdb.set_trace()
