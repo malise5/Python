@@ -95,3 +95,52 @@ class Pet:
                 breed=row[3],
                 temperament=row[4],
             )
+
+    @classmethod
+    def find_by_id(cls, id):
+        sql = '''
+            SELECT * FROM pets
+            WHERE id = ?
+            LIMIT 1
+        '''
+        row = CURSOR.execute(sql, (id)).fetchone()
+        if not row:
+            return None
+        else:
+            cls(
+                id=row[0],
+                name=row[1],
+                species=row[2],
+                breed=row[3],
+                temperament=row[4],
+            )
+
+    @classmethod
+    def find_or_create_by(cls, name=None, species=None, breed=None, temperament=None):
+        sql = '''
+            SELECT * FROM pets
+            WHERE (name, species, breed, temperament) = (?,?,?,?)
+            LIMIT 1
+        '''
+
+        row = CURSOR.execute(
+            sql, (name, species, breed, temperament,)).fetchone()
+        if row:
+            print("Conflict")
+            return None
+        if not row:
+            sql = '''
+            INSERT INTO pets (name, species, breed, temperament)
+            VALUES (?,?,?,?)
+            '''
+            pet = CURSOR.execute(sql, (name, species, breed, temperament))
+
+    # @classmethod
+    def update(self):
+        sql = '''
+            UPDATE pets 
+            SET name = ?, species = ?, breed = ? 
+            WHERE id = ?
+        '''
+
+        CURSOR.execute(sql, (self.name, self.breed, self.id))
