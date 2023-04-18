@@ -29,5 +29,11 @@ if __name__ == '__main__':
     session.bulk_save_objects([rose, spot])
     session.commit()
 
+    # Resources ALL INSTANCES
+    pets = session.query(Pet)
+
+    # print the pets
+    print([pet for pet in pets])
+
 
 ipdb.set_trace()
