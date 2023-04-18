@@ -5,11 +5,11 @@ import ipdb
 
 # Class Method
 # Pet.create_table()
-# spuky = Pet("spuky", "Dog", "german Shepher", "Intelligent")
+spuky = Pet.create("spuky", "Dog", "german Shepher", "Intelligent")
 # spot = Pet("Spot", "Dog", "husky", "Feisty")
 
 # instance method
-# spuky.save()
+spuky.save()
 # spot.save()
 
 # Class Method

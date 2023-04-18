@@ -57,3 +57,22 @@ class Pet:
         pet.save()
 
         return pet
+
+    @classmethod
+    def get_newest_pet(cls, row):
+        pet = cls(
+            id=row[0],
+            name=row[1],
+            species=row[2],
+            breed=row[3],
+            temperament=row[4],
+        )
+        return pet
+
+    @classmethod
+    def get_all(cls):
+        sql = '''
+        SELECT * FROM pets
+        '''
+
+        return [cls.get_newest_pet(row) for row in CURSOR.execute(sql)]
