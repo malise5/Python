@@ -72,7 +72,26 @@ class Pet:
     @classmethod
     def get_all(cls):
         sql = '''
-        SELECT * FROM pets
+            SELECT * FROM pets
         '''
 
         return [cls.get_newest_pet(row) for row in CURSOR.execute(sql)]
+
+    @classmethod
+    def find_by_name(cls, name):
+        sql = '''
+            SELECT * FROM pets
+            WHERE name = ?
+            LIMIT 1
+        '''
+        row = CURSOR.execute(sql, (name)).fetchone()
+        if not row:
+            return None
+        else:
+            cls(
+                id=row[0],
+                name=row[1],
+                species=row[2],
+                breed=row[3],
+                temperament=row[4],
+            )
