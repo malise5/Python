@@ -26,6 +26,7 @@ class Pet(Base):
     owner_id = Column(Integer(), ForeignKey('owners.id'))
 
     # returns all the columns of the pet table
+
     def __repr__(self):
         return f"ID: {self.id},"\
             + f"Name: {self.name},"\
@@ -37,11 +38,10 @@ class Pet(Base):
 
 
 class Owner(Base):
-
-    __tablename__ = 'owner'
+    __tablename__ = 'owners'
     __table_args__ = (PrimaryKeyConstraint('id'),)
 
-    id = Column(Integer())
+    id = Column(Integer(), primary_key=True)
     name = Column(String())
     email = Column(String())
     phone = Column(Integer())
@@ -60,4 +60,4 @@ class Owner(Base):
             + f"Address: {self.address},"
     # after abover record we migrate using "alembic init migration"
     # inside the alembic.ini in the migration we set it to sqlalchemy.url = sqlite://pet_app.db
-    # alembic revision --autogenerate -m "add pets and owners tables"
+    # alembic upgrade head
