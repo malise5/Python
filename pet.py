@@ -35,3 +35,12 @@ class Pet:
             DROP TABLE IF EXISTS pets
         '''
         CURSOR.execute(sql)
+
+    def save(self):
+        sql = '''
+            INSERT INTO pets(name, species, breed, temperament)
+            VALUES (?,?,?,?)
+        '''
+        CURSOR.execute(sql, (self.name, self.species,
+                       self.breed, self.temperament))
+        self.id = CURSOR.lastrowid

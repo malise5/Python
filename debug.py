@@ -4,12 +4,12 @@ from owner import Owner, CONN, CURSOR
 import ipdb
 
 # Class Method
-Pet.create_table()
-
-
+# Pet.create_table()
+# spuky = Pet("spuky", "Dog", "german Shepher", "Intelligent")
 # spot = Pet("Spot", "Dog", "husky", "Feisty")
 
 # instance method
+# spuky.save()
 # spot.save()
 
 # Class Method
