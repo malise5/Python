@@ -3,5 +3,10 @@ from owner import Owner, CONN, CURSOR
 # from cat import Cat
 import ipdb
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-ipdb.set_trace()
+from models import (Base, Pet)
+
+if __name__ == '__main__':
+    
