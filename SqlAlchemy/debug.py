@@ -59,6 +59,10 @@ if __name__ == '__main__':
     print([pet for pet in pets])
 
     # 3.4 ⌛ Delete the all information
+    session.query(Pet).delete()
+
+    pets = session.query(Pet)
+    print([pet for pet in pets])
 
 
 ipdb.set_trace()
